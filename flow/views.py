@@ -35,3 +35,10 @@ def register_view(request):
 
     context = {"form": form, "error": error}
     return render(request, "flow/register.html", context)
+
+def logout_view(request):
+
+    if request.user.is_authenticated:
+        logout(request)
+
+    return redirect("home")
